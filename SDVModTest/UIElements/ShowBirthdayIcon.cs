@@ -84,7 +84,7 @@ namespace UIInfoSuite.UIElements
                         break;
                     }
                 }
-
+                
                 if (_birthdayNPC != null)
                     break;
             }
@@ -100,9 +100,9 @@ namespace UIInfoSuite.UIElements
             {
                 if (_birthdayNPC != null)
                 {
-                    Rectangle headShot = _birthdayNPC.GetHeadShot();
-                    Point iconPosition = IconHandler.Handler.GetNewIconPosition();
-                    float scale = 2.9f;
+                    var headShot = _birthdayNPC.GetHeadShot();
+                    var iconPosition = IconHandler.Handler.GetNewIconPosition();
+                    var scale = 2.9f;
 
                     Game1.spriteBatch.Draw(
                         Game1.mouseCursors,
@@ -121,8 +121,8 @@ namespace UIInfoSuite.UIElements
                             new Rectangle(
                                 iconPosition.X - 7,
                                 iconPosition.Y - 2,
-                                (int) (16.0 * scale),
-                                (int) (16.0 * scale)),
+                                (int)(16.0 * scale),
+                                (int)(16.0 * scale)),
                             null,
                             _birthdayNPC.Name,
                             _birthdayNPC.Sprite.Texture,
@@ -140,7 +140,7 @@ namespace UIInfoSuite.UIElements
         private void OnRenderedHud(object sender, RenderedHudEventArgs e)
         {
             // draw hover text
-            if (_birthdayNPC != null &&
+            if (_birthdayNPC != null && 
                 (_birthdayIcon?.containsPoint(Game1.getMouseX(), Game1.getMouseY()) ?? false))
             {
                 String hoverText = String.Format(_helper.SafeGetString(LanguageKeys.NPCBirthday), _birthdayNPC.Name);
